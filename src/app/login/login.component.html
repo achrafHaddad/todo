@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="login-content">
+    <form [formGroup]="logForm" (ngSubmit)="onSubmit()">
+      <h2 class="title">Welcome</h2>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+          <input
+            type="text"
+            formControlName="email"
+            placeholder="Email"
+            class="input"
+          />
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            class="input"
+          />
+        </div>
+      </div>
+      <!-- <a href="#">Forgot Password?</a> -->
+      <input
+        type="submit"
+        class="btn"
+        value="login"
+        [disabled]="!logForm.valid"
+        [ngStyle]="{'color':!logForm.valid? 'red': 'green'}"
+      />
+    </form>
+  </div>
+</div>

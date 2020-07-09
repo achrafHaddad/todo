@@ -1,0 +1,28 @@
+<form [formGroup]="todoForm" (ngSubmit)="onAdd()">
+  <input formControlName="todo" placeholder="Enter your Todo" type="text" />
+</form>
+<ul *ngIf="todos.length > 0">
+  <li *ngFor="let todo of todos; let i =index">
+    <input
+      type="checkbox"
+      [(ngModel)]="todo.status"
+      (change)="onUpdateStatus(todo)"
+    />
+    <label>{{todo.name}}</label>
+    <button type="button" (click)="onDelete(i)">Delete</button>
+  </li>
+</ul>
+
+<!-- <form>
+  <input
+    type="file"
+    name="myFile"
+    multiple
+    max-uploads="1"
+    id="imgUpload"
+    #img
+    accept=".png, .jpeg"
+    (change)="fileChange($event)"
+  />
+  <input type="submit" value="Upload a file" (click)="upFile()" />
+</form> -->
